@@ -33,7 +33,7 @@ const ITEM_OPTIONS = [
   const billBody = document.getElementById("billBody");
   const grandTotalEl = document.getElementById("grandTotal");
   
-  // Initial setup
+  // Initial setup: date + starter rows
   (function init() {
     const d = new Date();
     const formatted = d.toLocaleDateString("en-IN", {
@@ -43,7 +43,7 @@ const ITEM_OPTIONS = [
     });
     document.getElementById("invoiceDate").textContent = formatted;
   
-    // Add some starter rows
+    // Add some blank rows
     for (let i = 0; i < 5; i++) addRow();
   })();
   

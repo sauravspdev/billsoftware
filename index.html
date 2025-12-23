@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Plywood Billing</title>
+  <title>Plywood Billing - Garima Enterprises</title>
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <link rel="stylesheet" href="styles.css" />
 </head>
@@ -10,10 +10,8 @@
   <div class="page">
     <header>
       <div>
-        <!-- Shop name is editable text -->
-        <input id="shopName"
-               class="shop-name-input"
-               placeholder="Enter shop name" />
+        <!-- Fixed shop name -->
+        <div class="shop-name">Garima Enterprises</div>
         <div class="shop-subtitle">
           Plywood &amp; Hardware Billing
         </div>
@@ -24,19 +22,24 @@
       </div>
     </header>
 
-    <section class="controls">
-      <div class="controls-left">
-        <div>Customer:
-          <input id="customerName"
-                 placeholder="Enter customer name"
-                 class="small-input" />
-        </div>
-        <div>Mobile:
-          <input id="customerPhone"
-                 placeholder="Contact number"
-                 class="small-input" />
-        </div>
+    <!-- Customer details (will also print) -->
+    <section class="customer-row">
+      <div class="customer-field">
+        Customer:
+        <input id="customerName"
+               placeholder="Enter customer name"
+               class="small-input" />
       </div>
+      <div class="customer-field">
+        Mobile:
+        <input id="customerPhone"
+               placeholder="Contact number"
+               class="small-input" />
+      </div>
+    </section>
+
+    <!-- Only this controls bar is hidden during print -->
+    <section class="controls no-print">
       <div class="controls-right">
         <button class="btn btn-outline" type="button" onclick="addRow()">+ Add Row</button>
         <button class="btn btn-primary" type="button" onclick="window.print()">Print / Save PDF</button>
@@ -78,4 +81,3 @@
   <script src="app.js"></script>
 </body>
 </html>
-

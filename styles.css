@@ -30,30 +30,17 @@ header {
   justify-content: space-between;
   gap: 24px;
   align-items: center;
-  margin-bottom: 24px;
+  margin-bottom: 16px;
   border-bottom: 2px solid var(--border);
   padding-bottom: 16px;
 }
 
-.shop-name-input {
+.shop-name {
   font-size: 20px;
   font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
-  border: none;
-  padding: 0;
-  margin: 0;
-  width: 100%;
   color: var(--primary);
-}
-
-.shop-name-input::placeholder {
-  color: #9ca3af;
-}
-
-.shop-name-input:focus {
-  outline: none;
-  border-bottom: 1px solid var(--accent);
 }
 
 .shop-subtitle {
@@ -68,25 +55,34 @@ header {
   color: #555;
 }
 
+/* Customer row (prints as well) */
+.customer-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin: 10px 0;
+  font-size: 13px;
+  color: #555;
+}
+
+.customer-field {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.small-input {
+  min-width: 140px;
+}
+
+/* Button controls (hidden on print) */
 .controls {
   display: flex;
   flex-wrap: wrap;
   gap: 10px;
   margin-bottom: 16px;
   align-items: center;
-  justify-content: space-between;
-}
-
-.controls-left {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 10px;
-  font-size: 13px;
-  color: #555;
-}
-
-.small-input {
-  min-width: 140px;
+  justify-content: flex-end;
 }
 
 .btn {
@@ -116,9 +112,10 @@ header {
   transform: translateY(1px);
 }
 
+/* Table */
 .table-wrapper {
   width: 100%;
-  overflow-x: auto; /* responsive horizontal scroll on mobile */
+  overflow-x: auto; /* responsive for mobile */
   border-radius: 8px;
   border: 1px solid var(--border);
 }
@@ -211,7 +208,7 @@ select:focus {
   background: #fecaca;
 }
 
-/* Print styles – hide controls when printing */
+/* Print styles – hide only .no-print elements */
 @media print {
   body {
     background: #fff;
@@ -221,7 +218,7 @@ select:focus {
     box-shadow: none;
     border-radius: 0;
   }
-  .controls {
+  .no-print {
     display: none !important;
   }
 }
@@ -234,5 +231,13 @@ select:focus {
   }
   .bill-meta {
     text-align: left;
+  }
+}
+
+/* Suggest landscape orientation for printing */
+@media print {
+  @page {
+    size: A4 landscape;   /* or just: size: landscape; */
+    margin: 10mm;
   }
 }
